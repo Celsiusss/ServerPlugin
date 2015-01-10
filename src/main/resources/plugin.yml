@@ -1,0 +1,16 @@
+name: ServerPlugin
+main: me.ende124.testplugin.ServerPlugin
+version: 1.0
+
+commands:
+   heal:
+      description: Heals you
+      usage: /<command> [player]
+
+   goto:
+      description: Goto a player
+      usage: /<command> <player>
+
+   bring:
+      description: Bring a player
+      usage: /<command> <player>
