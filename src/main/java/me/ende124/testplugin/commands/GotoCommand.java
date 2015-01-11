@@ -10,6 +10,7 @@ public class GotoCommand extends ServerPluginCommand {
 		super(instance);
 	}
 
+	@Override
 	public boolean onPlayerCommand(Player p, Command cmd, String label, String[] args) {
 		if (args.length == 0) {
 			p.sendMessage(getChatColorError() + "Please specify a player!");
