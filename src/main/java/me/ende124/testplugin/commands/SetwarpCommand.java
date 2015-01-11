@@ -19,7 +19,12 @@ public class SetwarpCommand extends ServerPluginCommand {
 			return true;
 		}
 
-		warps.set("warps." + args[0] + ".x", p.getLocation());
+		warps.set("warps." + args[0] + ".x", p.getLocation().getX());
+		warps.set("warps." + args[0] + ".y", p.getLocation().getY());
+		warps.set("warps." + args[0] + ".z", p.getLocation().getZ());
+		warps.set("warps." + args[0] + ".pitch", p.getLocation().getPitch());
+		warps.set("warps." + args[0] + ".yaw", p.getLocation().getYaw());
+		warps.set("warps." + args[0] + ".world", p.getLocation().getWorld().getName());
 		warps.saveConfig();
 		
 		p.sendMessage(getChatColorDefault() + "Warp " + getChatColorName() + args[0] + getChatColorDefault() + " set!");
