@@ -14,3 +14,7 @@ commands:
    bring:
       description: Bring a player
       usage: /<command> <player>
+
+   setwarp:
+      description: Set a new warp
+      usage: /<command> <name>
