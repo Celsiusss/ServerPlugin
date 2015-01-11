@@ -18,6 +18,7 @@ public abstract class ServerPluginCommand implements CommandExecutor {
 	private ChatColor ChatColorPrivate;
 	private ChatColor ChatColorCommand;
 	private ChatColor ChatColorPositive;
+	private ChatColor ChatColorName;
 
 	public ServerPluginCommand(ServerPlugin instance) {
 		setChatColoPlayer(ChatColor.AQUA);
@@ -29,6 +30,7 @@ public abstract class ServerPluginCommand implements CommandExecutor {
 		setChatColorPrivate(ChatColor.LIGHT_PURPLE);
 		setChatColorCommand(ChatColor.GOLD);
 		setChatColorPositive(ChatColor.GREEN);
+		setChatColorName(ChatColor.LIGHT_PURPLE);
 	}
 
 	@Override
@@ -119,5 +121,13 @@ public abstract class ServerPluginCommand implements CommandExecutor {
 
 	public void setChatColorPositive(ChatColor chatColorPositive) {
 		ChatColorPositive = chatColorPositive;
+	}
+
+	public ChatColor getChatColorName() {
+		return ChatColorName;
+	}
+
+	public void setChatColorName(ChatColor chatColorName) {
+		ChatColorName = chatColorName;
 	}
 }
