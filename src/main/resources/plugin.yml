@@ -17,4 +17,12 @@ commands:
 
    setwarp:
       description: Set a new warp
-      usage: /<command> <name>
+      usage: /<command> <name> [description]
+      
+   warps:
+      description: List the warps
+      usage: /<command>
+      
+   warp:
+      description: Warp
+      usage: /<command> <warp>
