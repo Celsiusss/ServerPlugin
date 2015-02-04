@@ -15,7 +15,9 @@ public class WarpsCommand extends ServerPluginCommand {
 	@Override
 	public boolean onPlayerCommand(Player p, Command cmd, String label, String[] args) {
 
-		p.sendMessage(warps.getConfigurationSection("warps").getName());
+		for (String s : warps.getConfigurationSection("warps").getKeys(false))
+			p.sendMessage("- " + s + " - " + warps.getString("warps." + s + ".description"));
+		
 		return true;
 	}
 }

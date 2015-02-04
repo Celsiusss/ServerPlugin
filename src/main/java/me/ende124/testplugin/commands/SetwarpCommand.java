@@ -27,8 +27,8 @@ public class SetwarpCommand extends ServerPluginCommand {
 		warps.set("warps." + args[0] + ".x", p.getLocation().getX());
 		warps.set("warps." + args[0] + ".y", p.getLocation().getY());
 		warps.set("warps." + args[0] + ".z", p.getLocation().getZ());
-		warps.set("warps." + args[0] + ".pitch", p.getLocation().getPitch());
-		warps.set("warps." + args[0] + ".yaw", p.getLocation().getYaw());
+		warps.set("warps." + args[0] + ".pitch", (double)p.getLocation().getPitch());
+		warps.set("warps." + args[0] + ".yaw", (double)p.getLocation().getYaw());
 		warps.set("warps." + args[0] + ".world", p.getLocation().getWorld().getName());
 		warps.set("warps." + args[0] + ".description", build.toString());
 		warps.saveConfig();

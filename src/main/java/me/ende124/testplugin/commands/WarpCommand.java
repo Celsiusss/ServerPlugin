@@ -17,8 +17,12 @@ public class WarpCommand extends ServerPluginCommand {
 	
 	@Override
 	public boolean onPlayerCommand(Player p, Command cmd, String label, String[] args) {
-		if (args.length > 1) {
+		if (args.length < 1) {
 			p.sendMessage(getChatColorError() + "Please specify a warp name!");
+			return true;
+		}
+		if (!warps.contains("warps." + args[0])) {
+			p.sendMessage(getChatColorError() + "Invalid warp name!");
 			return true;
 		}
 		World w = Bukkit.getServer().getWorld(warps.getString("warps." + args[0] + ".world"));

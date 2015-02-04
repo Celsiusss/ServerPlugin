@@ -1,9 +1,6 @@
 package me.ende124.testplugin;
 
-import me.ende124.testplugin.commands.BringCommand;
-import me.ende124.testplugin.commands.GotoCommand;
-import me.ende124.testplugin.commands.HealCommand;
-import me.ende124.testplugin.commands.SetwarpCommand;
+import me.ende124.testplugin.commands.*;
 import me.ende124.testplugin.config.MyConfig;
 import me.ende124.testplugin.config.MyConfigManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,5 +27,8 @@ public final class ServerPlugin extends JavaPlugin {
 		getCommand("goto").setExecutor(new GotoCommand(this));
 		getCommand("bring").setExecutor(new BringCommand(this));
 		getCommand("setwarp").setExecutor(new SetwarpCommand(this));
+		getCommand("warps").setExecutor(new WarpsCommand(this));
+		getCommand("warp").setExecutor(new WarpCommand(this));
+		getCommand("delwarp").setExecutor(new DelwarpCommand(this));
 	}
 }

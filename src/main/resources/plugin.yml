@@ -26,3 +26,7 @@ commands:
    warp:
       description: Warp
       usage: /<command> <warp>
+      
+   delwarp:
+      description: Delete a warp
+      usage: /<command> <warp>
