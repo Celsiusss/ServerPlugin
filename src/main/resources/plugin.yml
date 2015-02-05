@@ -30,3 +30,11 @@ commands:
    delwarp:
       description: Delete a warp
       usage: /<command> <warp>
+      
+   kit:
+      description: Kits!
+      usage: /<command> <kit>
+      
+   acolor:
+      description: Color armor
+      usage: /<command>
