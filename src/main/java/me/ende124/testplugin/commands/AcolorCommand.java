@@ -7,9 +7,7 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -51,7 +49,7 @@ public class AcolorCommand extends ServerPluginCommand implements Listener {
 					lam.setColor(Color.fromRGB(r, g, b));
 					p.getItemInHand().setItemMeta(lam);
 					
-				} catch(NumberFormatException e) {
+				} catch(Exception e) {
 					p.sendMessage(getChatColorError() + "Invalid RGB format");
 					return true;
 				}
@@ -69,7 +67,7 @@ public class AcolorCommand extends ServerPluginCommand implements Listener {
 }
 
 	private void openAColorGUI(Player p) {
-		Inventory inv = Bukkit.createInventory(null, 18, "Armor Color Chooser");
+		Inventory inv = Bukkit.createInventory(null, 18, "Colour Selector");
 
 		ItemStack white = new ItemStack(Material.INK_SACK, 1, (short) 15);
 		ItemMeta whiteM = white.getItemMeta();
@@ -108,7 +106,7 @@ public class AcolorCommand extends ServerPluginCommand implements Listener {
 
 		ItemStack gray = new ItemStack(Material.INK_SACK, 1, (short) 8);
 		ItemMeta grayM = gray.getItemMeta();
-		grayM.setDisplayName(ChatColor.DARK_PURPLE + "Gray");
+		grayM.setDisplayName(ChatColor.GRAY + "Gray");
 		gray.setItemMeta(grayM);
 
 		ItemStack pink = new ItemStack(Material.INK_SACK, 1, (short) 9);
@@ -155,75 +153,5 @@ public class AcolorCommand extends ServerPluginCommand implements Listener {
 		inv.setItem(17, custom);
 		
 		p.openInventory(inv);
-	}
-
-	@EventHandler
-	public void onPlayerClick(InventoryClickEvent e) {
-		if (!e.getInventory().getName().equalsIgnoreCase("Armor Color Chooser")) {
-			return;
-		}
-		Player p = (Player)e.getWhoClicked();
-		e.setCancelled(true);
-
-		if (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR || !e.getCurrentItem().hasItemMeta()) {
-			p.closeInventory();
-			return;
-		}
-
-		LeatherArmorMeta lam = (LeatherArmorMeta)p.getItemInHand().getItemMeta();
-		switch (ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName())) {
-			case "White":
-				lam.setColor(Color.WHITE);
-				p.closeInventory();
-				break;
-			case "Red":
-				lam.setColor(Color.RED);
-				p.closeInventory();
-				break;
-			case "Green":
-				lam.setColor(Color.GREEN);
-				p.closeInventory();
-				break;
-			case "Brown":
-				lam.setColor(null);
-				p.closeInventory();
-				break;
-			case "Blue":
-				lam.setColor(Color.BLUE);
-				p.closeInventory();
-				break;
-			case "Purple":
-				lam.setColor(Color.PURPLE);
-				p.closeInventory();
-				break;
-			case "Cyan":
-				lam.setColor(Color.TEAL);
-				p.closeInventory();
-				break;
-			case "Grey":
-				lam.setColor(Color.GRAY);
-				p.closeInventory();
-				break;
-			case "Pink":
-				lam.setColor(Color.FUCHSIA);
-				p.closeInventory();
-				break;
-			case "Yellow":
-				lam.setColor(Color.YELLOW);
-				p.closeInventory();
-				break;
-			case "Orange":
-				lam.setColor(Color.ORANGE);
-				p.closeInventory();
-				break;
-			case "Black":
-				lam.setColor(Color.BLACK);
-				p.closeInventory();
-				break;
-			default:
-				p.closeInventory();
-				break;
-		}
-		p.getItemInHand().setItemMeta(lam);
 	}
 }

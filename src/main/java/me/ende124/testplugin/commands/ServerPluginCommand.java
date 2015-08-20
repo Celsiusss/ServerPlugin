@@ -41,7 +41,7 @@ public abstract class ServerPluginCommand implements CommandExecutor {
 		}
 		Player p = (Player) sender;
 
-		if (!(p.hasPermission("server." + cmd.getName()))) {
+		if (!p.hasPermission("server." + cmd.getName())) {
 			sender.sendMessage(getChatColorError() + "You don't have permission for this command");
 			return true;
 		}

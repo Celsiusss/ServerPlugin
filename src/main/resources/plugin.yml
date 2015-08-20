@@ -38,3 +38,11 @@ commands:
    acolor:
       description: Color armor
       usage: /<command>
+      
+   holo:
+      description: Make a hologram!
+      usage: /<command> <text>
+      
+   delholo:
+      description: Delete a hologram
+      usage: /<command>

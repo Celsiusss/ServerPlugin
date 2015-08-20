@@ -22,15 +22,15 @@
     </build>
     <repositories>
         <repository>
-            <id>spigot</id>
-            <url>http://repo.md-5.net/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
     </repositories>
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.8-R0.1-SNAPSHOT</version>
+            <artifactId>spigot-api</artifactId>
+            <version>1.8.3-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
